@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Resume Analyzer</h1>
+
+    <div class="upload-row">
+      <input type="file" id="resumeFile" accept=".pdf" />
+      <button type="button" onclick="analyzeResume()">Analyze Resume</button>
+    </div>
+
+    <div id="analyzeLoading" class="loading hidden">Analyzing resume...</div>
+    <div id="analyzeResults"></div>
+    <button type="button" id="downloadAnalyzeBtn" class="download-btn hidden" onclick="downloadPDF('analyzeResults', 'Resume_Analysis')">⬇ Download Analysis PDF</button>
+
+    <hr />
+
+    <h2>Match with Job Description</h2>
+    <textarea id="jobDescription" rows="6" placeholder="Paste job description here..."></textarea>
+    <button type="button" onclick="matchJob()">Match with Job</button>
+
+    <div id="matchLoading" class="loading hidden">Matching with job...</div>
+    <div id="matchResults"></div>
+    <button type="button" id="downloadMatchBtn" class="download-btn hidden" onclick="downloadPDF('matchResults', 'Job_Match_Report')">⬇ Download Match Report PDF</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
