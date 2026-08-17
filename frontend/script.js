@@ -1,3 +1,5 @@
+const BACKEND_URL = 'https://ai-resume-analyzer-9bar.onrender.com';
+
 async function analyzeResume() {
   const fileInput = document.getElementById('resumeFile');
   const resultsDiv = document.getElementById('analyzeResults');
@@ -16,7 +18,7 @@ async function analyzeResume() {
   loadingDiv.classList.remove('hidden');
 
   try {
-    const res = await fetch('http://localhost:8000/analyze', {
+    const res = await fetch(`${BACKEND_URL}/analyze`, {
       method: 'POST',
       body: formData
     });
@@ -61,7 +63,7 @@ async function matchJob() {
   loadingDiv.classList.remove('hidden');
 
   try {
-    const res = await fetch('http://localhost:8000/match', {
+    const res = await fetch(`${BACKEND_URL}/match`, {
       method: 'POST',
       body: formData
     });
